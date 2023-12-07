@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -42,7 +43,6 @@ fun HomeScreen() {
         verticalArrangement = Arrangement.Top
     ) {
 
-
         Box(
             modifier = Modifier
                 .fillMaxWidth(),
@@ -65,10 +65,22 @@ fun HomeScreen() {
         ) {
 
             Text(text = date, color = Teal700, fontWeight = Bold)
-
         }
 
         Divider( thickness = 1.dp, color = MaterialTheme.colorScheme.onPrimary)
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(5.dp)
+        ) {
+            LazyColumn(modifier = Modifier.fillMaxSize()) {
+                items(15){
+                    ListItems()
+                }
+            }
+
+        }
     }
 }
 

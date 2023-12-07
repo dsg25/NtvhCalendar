@@ -29,7 +29,8 @@ fun MainCalendar (locale: Locale, onDateSelected: (String) -> Unit )
         val configuration = context.resources.configuration
         configuration.setLocale(locale)
         context.createConfigurationContext(configuration)
-        onDateSelected(formattedDate)
+
+        onDateSelected(formattedDate) // Заносим в переменную текущую дату
 
         CalendarView(context) },
         modifier = Modifier
@@ -38,8 +39,8 @@ fun MainCalendar (locale: Locale, onDateSelected: (String) -> Unit )
             .height(310.dp),
         update = {
             it.setOnDateChangeListener { _, year, month, day ->
-                val formattedDate = "$day.${month + 1}.$year"
-                onDateSelected(formattedDate)
+                val formattedDateListener = "$day.${month + 1}.$year"
+                onDateSelected(formattedDateListener) // Заносим в переменную выбранную дату
             }
         }
     )
