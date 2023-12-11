@@ -1,4 +1,4 @@
-package com.example.nvhcalendar.screens
+package com.example.nvhcalendar.models
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
