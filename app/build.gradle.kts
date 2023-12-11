@@ -66,4 +66,11 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:<latest-version>")
+
+    // The compose calendar library
+    implementation ("com.kizitonwose.calendar:compose:2.4.0")
+
+
 }
