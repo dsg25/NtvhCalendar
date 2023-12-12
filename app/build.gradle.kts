@@ -72,5 +72,7 @@ dependencies {
     // The compose calendar library
     implementation ("com.kizitonwose.calendar:compose:2.4.0")
 
+    implementation ("com.google.accompanist:accompanist-swiperefresh:0.28.0")
+
 
 }

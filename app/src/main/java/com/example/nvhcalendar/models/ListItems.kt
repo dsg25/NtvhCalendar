@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.nvhcalendar.ui.theme.BaseBGSecondary
 
 @Preview(showBackground = true)
 @Composable
@@ -32,11 +33,11 @@ fun ListItems() {
             .fillMaxWidth()
             .padding(top = 5.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.Blue, //Card background color
-            contentColor = Color.Red  //Card content color,e.g.text
+            containerColor = BaseBGSecondary, //Card background color
+            contentColor = Color.White  //Card content color,e.g.text
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
-        shape = RoundedCornerShape(5.dp)
+        shape = RoundedCornerShape(10.dp)
     )
     {
         Row(
@@ -53,7 +54,7 @@ fun ListItems() {
                     .padding(start = 6.dp, top = 5.dp, bottom = 5.dp, end = 8.dp)
             )
             {
-                ColorIndex(shape = RoundedCornerShape(5.dp), color = Color.Red) // Изменение цвета
+                ColorIndex(shape = RoundedCornerShape(5.dp), color = Color.Blue) // Изменение цвета События
             }
             Row(
                 modifier = Modifier

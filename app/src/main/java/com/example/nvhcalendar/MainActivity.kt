@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.example.nvhcalendar.calendars.MainCalendar
 import com.example.nvhcalendar.screens.HomeScreen
 import com.example.nvhcalendar.ui.theme.NvhCalendarTheme
 
@@ -22,7 +23,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    HomeScreen()
+                    MainCalendar()
+//                    HomeScreen()
                 }
             }
         }
