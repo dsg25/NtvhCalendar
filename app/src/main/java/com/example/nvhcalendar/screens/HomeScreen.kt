@@ -51,11 +51,10 @@ import com.example.nvhcalendar.ui.theme.BaseBGSecondary
 import com.example.nvhcalendar.ui.theme.NtvhBlue
 import com.example.nvhcalendar.ui.theme.NtvhGreen
 import com.example.nvhcalendar.ui.theme.NvhCalendarTheme
-import kotlin.random.Random
 
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(randomNumber: Int) {
 
     val currentMonth = remember { YearMonth.now() }
     val startMonth = remember { currentMonth.minusMonths(100) } // Adjust as needed
@@ -159,7 +158,7 @@ fun HomeScreen() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(5.dp)
-        ) {val randomNumber = Random.nextInt(1, 8)
+        ) {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(randomNumber) {
                     ListItems()
@@ -267,12 +266,12 @@ fun DayOfWeek.displayText(uppercase: Boolean = false): String {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun HomeScreenPreview() {
-    NvhCalendarTheme(darkTheme = true) {
-        HomeScreen()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun HomeScreenPreview() {
+//    NvhCalendarTheme(darkTheme = true) {
+//        HomeScreen()
+//    }
+//}
 
 
