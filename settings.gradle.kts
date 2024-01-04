@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "NvhCalendar"
+rootProject.name = "NtvhCalendar"
 include(":app")
  

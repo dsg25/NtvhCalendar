@@ -1,4 +1,4 @@
-package com.example.nvhcalendar.ui.theme
+package com.example.ntvhcalendar.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

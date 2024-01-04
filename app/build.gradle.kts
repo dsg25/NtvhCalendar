@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.nvhcalendar"
+    namespace = "com.example.ntvhcalendar"
     compileSdk = 34
 
     defaultConfig {
         multiDexEnabled = true
 
-        applicationId = "com.example.nvhcalendar"
+        applicationId = "com.example.ntvhcalendar"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

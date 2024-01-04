@@ -1,4 +1,4 @@
-package com.example.nvhcalendar.models
+package com.example.ntvhcalendar.models
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,7 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.nvhcalendar.ui.theme.BaseBGSecondary
+import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
 
 @Preview(showBackground = true)
 @Composable

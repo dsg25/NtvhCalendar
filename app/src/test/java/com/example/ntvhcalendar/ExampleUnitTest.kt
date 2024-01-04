@@ -1,4 +1,4 @@
-package com.example.nvhcalendar
+package com.example.ntvhcalendar
 
 import org.junit.Test
 

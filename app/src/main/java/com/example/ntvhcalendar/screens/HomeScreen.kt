@@ -1,4 +1,4 @@
-package com.example.nvhcalendar.screens
+package com.example.ntvhcalendar.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -43,14 +43,12 @@ import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.TextStyle
 import java.util.Locale
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.nvhcalendar.calendars.RussianMonth
-import com.example.nvhcalendar.models.ListItems
-import com.example.nvhcalendar.ui.theme.BaseBGPrimary
-import com.example.nvhcalendar.ui.theme.BaseBGSecondary
-import com.example.nvhcalendar.ui.theme.NtvhBlue
-import com.example.nvhcalendar.ui.theme.NtvhGreen
-import com.example.nvhcalendar.ui.theme.NvhCalendarTheme
+import com.example.ntvhcalendar.calendars.RussianMonth
+import com.example.ntvhcalendar.models.ListItems
+import com.example.ntvhcalendar.ui.theme.BaseBGPrimary
+import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
+import com.example.ntvhcalendar.ui.theme.NtvhBlue
+import com.example.ntvhcalendar.ui.theme.NtvhGreen
 
 
 @Composable

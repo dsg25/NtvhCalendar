@@ -1,4 +1,4 @@
-package com.example.nvhcalendar
+package com.example.ntvhcalendar
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
