@@ -1,4 +1,4 @@
-package com.example.ntvhcalendar.models
+package com.example.ntvhcalendar.datacalendar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

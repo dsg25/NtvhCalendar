@@ -43,8 +43,8 @@ import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.TextStyle
 import java.util.Locale
-import com.example.ntvhcalendar.calendars.RussianMonth
-import com.example.ntvhcalendar.models.ListItems
+import com.example.ntvhcalendar.datacalendar.RussianMonth
+import com.example.ntvhcalendar.datacalendar.ListItems
 import com.example.ntvhcalendar.ui.theme.BaseBGPrimary
 import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
 import com.example.ntvhcalendar.ui.theme.NtvhBlue

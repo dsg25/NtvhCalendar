@@ -30,7 +30,8 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.ntvhcalendar.data.ApiKey
 import com.example.ntvhcalendar.data.LoadingDataUser
-import com.example.ntvhcalendar.interfaces.LoginForm
+import com.example.ntvhcalendar.screens.LoginScreen
+import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
 import com.example.ntvhcalendar.ui.theme.NtvhCalendarTheme
 import kotlinx.coroutines.delay
 import org.json.JSONObject
@@ -56,7 +57,7 @@ class LoginActivity : ComponentActivity() {
                 if (isLoading) {
                     LoadingScreen()
                 } else {
-                    LoginForm(usersList)
+                    LoginScreen(usersList)
                         }
             }
         }
@@ -100,7 +101,7 @@ fun LoadingScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.DarkGray),
+            .background(BaseBGSecondary),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {

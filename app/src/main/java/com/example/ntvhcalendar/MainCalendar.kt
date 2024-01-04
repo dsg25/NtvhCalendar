@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 
-package com.example.ntvhcalendar.calendars
+package com.example.ntvhcalendar
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material.ExperimentalMaterialApi

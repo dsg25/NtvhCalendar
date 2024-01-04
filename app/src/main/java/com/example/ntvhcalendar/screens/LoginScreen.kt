@@ -1,7 +1,8 @@
-package com.example.ntvhcalendar.interfaces
+package com.example.ntvhcalendar.screens
 
 import android.app.Activity
 import android.content.Intent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -46,11 +47,12 @@ import com.example.ntvhcalendar.utils.checkCredentials
 import com.example.ntvhcalendar.data.Credentials
 import com.example.ntvhcalendar.data.LoadingDataUser
 import com.example.ntvhcalendar.data.StorageUserData
+import com.example.ntvhcalendar.ui.theme.BaseBGPrimary
 import kotlinx.coroutines.launch
 
 @Composable
-fun LoginForm(usersList: MutableState<List<LoadingDataUser>>) {
-    Surface(modifier = Modifier.fillMaxSize()) {
+fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
+    Surface(modifier = Modifier.fillMaxSize().background(BaseBGPrimary)) {
         val coroutine = rememberCoroutineScope()
 
         val context = LocalContext.current

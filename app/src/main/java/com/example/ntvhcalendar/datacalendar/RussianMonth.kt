@@ -1,4 +1,4 @@
-package com.example.ntvhcalendar.calendars
+package com.example.ntvhcalendar.datacalendar
 
 enum class RussianMonth(val displayName: String) {
     JANUARY("Январь"),
