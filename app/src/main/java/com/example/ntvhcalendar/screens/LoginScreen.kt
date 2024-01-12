@@ -48,6 +48,10 @@ import com.example.ntvhcalendar.data.Credentials
 import com.example.ntvhcalendar.data.LoadingDataUser
 import com.example.ntvhcalendar.data.StorageUserData
 import com.example.ntvhcalendar.ui.theme.BaseBGPrimary
+import com.example.ntvhcalendar.ui.theme.NtvhBlue
+import com.example.ntvhcalendar.ui.theme.NtvhGreen
+import com.example.ntvhcalendar.ui.theme.NtvhRed
+import com.example.ntvhcalendar.ui.theme.NtvhWhite
 import kotlinx.coroutines.launch
 
 @Composable
@@ -93,7 +97,7 @@ fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
                 Icon(
                     imageVector = Icons.Default.ExitToApp,
                     contentDescription = "Exit",
-                    tint = Color.Blue)
+                    tint = NtvhGreen)
             }
         }
 // *********** END ************
@@ -153,7 +157,7 @@ fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
                 modifier = Modifier.fillMaxWidth()
             )
             {
-                Text("Login")
+                Text("Login", color = NtvhWhite)
             }
 
         }
@@ -236,7 +240,7 @@ fun LoginLastField(
 @Composable
 fun UserError () {
 
-    Text(text = "Пользователя не существует", color = Color.Red)
+    Text(text = "Пользователя не существует", color = NtvhRed)
 }
 
 

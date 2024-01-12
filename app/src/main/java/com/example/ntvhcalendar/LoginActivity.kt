@@ -33,6 +33,7 @@ import com.example.ntvhcalendar.data.LoadingDataUser
 import com.example.ntvhcalendar.screens.LoginScreen
 import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
 import com.example.ntvhcalendar.ui.theme.NtvhCalendarTheme
+import com.example.ntvhcalendar.ui.theme.NtvhRed
 import kotlinx.coroutines.delay
 import org.json.JSONObject
 
@@ -43,6 +44,8 @@ class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            window.statusBarColor = getColor(R.color.BaseBGSecondary)
+            window.navigationBarColor = getColor(R.color.BaseBGSecondary)
             NtvhCalendarTheme(darkTheme = true) {
                 val context = LocalContext.current
                 val usersList = remember { mutableStateOf(listOf<LoadingDataUser>()) }

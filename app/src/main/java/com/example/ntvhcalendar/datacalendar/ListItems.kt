@@ -67,10 +67,10 @@ fun ListItems() {
                  Box(
                     modifier = Modifier
                         .padding(2.dp)
-                        .width(300.dp),
+                        .width(280.dp),
                     contentAlignment = Alignment.CenterStart
                 ) {
-                    Text(text = "СОБЫТИЕ: Мама мыла раму, папа мыл dfghfh fghfghfgh  fg",
+                    Text(text = "СОБЫТИЕ: Мама мыла раму, папа вапвп вап",
                         modifier = Modifier.wrapContentWidth())
                 }
 

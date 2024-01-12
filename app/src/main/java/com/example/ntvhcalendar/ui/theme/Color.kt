@@ -13,3 +13,5 @@ val BaseBGSecondary = Color(0xFF1A1C1E)
 val NtvhGreen = Color(0xFF006C4F)
 val NtvhBlue = Color(0xFF0060AA)
 val NtvhRed = Color(0xFFAA0000)
+val NtvhWhite = Color(0xFFFFFFFF)
+
