@@ -89,4 +89,7 @@ dependencies {
     // Для использования REST API
     implementation("com.android.volley:volley:1.2.1")
 
+    // Для использования Bottom Navigation Bar
+    implementation("androidx.navigation:navigation-compose:2.7.6")
+
 }

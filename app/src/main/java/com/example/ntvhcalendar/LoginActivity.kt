@@ -1,9 +1,10 @@
 package com.example.ntvhcalendar
 
-/* Все что кассется ЛогинАктивити вынеси в отдельный package*/
-
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.WindowInsets
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -33,12 +34,10 @@ import com.example.ntvhcalendar.data.LoadingDataUser
 import com.example.ntvhcalendar.screens.LoginScreen
 import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
 import com.example.ntvhcalendar.ui.theme.NtvhCalendarTheme
-import com.example.ntvhcalendar.ui.theme.NtvhRed
 import kotlinx.coroutines.delay
 import org.json.JSONObject
 
 val API_KEY = ApiKey()
-// const val API_KEY = "4sb8f2whmak4yk2o"
 class LoginActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +46,19 @@ class LoginActivity : ComponentActivity() {
             window.statusBarColor = getColor(R.color.BaseBGSecondary)
             window.navigationBarColor = getColor(R.color.BaseBGSecondary)
             NtvhCalendarTheme(darkTheme = true) {
+
+                /* Скрываем Нижнюю системную панель */
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    val windowInsetsController = window.insetsController
+                    windowInsetsController?.hide(WindowInsets.Type.navigationBars())
+                } else {
+                    // Для более старых версий
+                    window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
+                }
+                /* END */
+
                 val context = LocalContext.current
                 val usersList = remember { mutableStateOf(listOf<LoadingDataUser>()) }
 

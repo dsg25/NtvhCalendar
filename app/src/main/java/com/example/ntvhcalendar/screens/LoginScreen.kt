@@ -50,6 +50,7 @@ import com.example.ntvhcalendar.data.StorageUserData
 import com.example.ntvhcalendar.ui.theme.BaseBGPrimary
 import com.example.ntvhcalendar.ui.theme.NtvhBlue
 import com.example.ntvhcalendar.ui.theme.NtvhGreen
+import com.example.ntvhcalendar.ui.theme.NtvhLightBlue
 import com.example.ntvhcalendar.ui.theme.NtvhRed
 import com.example.ntvhcalendar.ui.theme.NtvhWhite
 import kotlinx.coroutines.launch
@@ -97,7 +98,7 @@ fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
                 Icon(
                     imageVector = Icons.Default.ExitToApp,
                     contentDescription = "Exit",
-                    tint = NtvhGreen)
+                    tint = NtvhBlue)
             }
         }
 // *********** END ************

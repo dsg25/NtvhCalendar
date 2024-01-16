@@ -16,6 +16,11 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
+import androidx.compose.material.Scaffold
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -52,13 +57,14 @@ import com.example.ntvhcalendar.ui.theme.NtvhGreen
 
 
 @Composable
-fun HomeScreen(randomNumber: Int) {
+fun CompanyCalendarScreen(randomNumber: Int) {
 
     val currentMonth = remember { YearMonth.now() }
     val startMonth = remember { currentMonth.minusMonths(100) } // Adjust as needed
     val endMonth = remember { currentMonth.plusMonths(100) } // Adjust as needed
 
     var selectedDate by remember { mutableStateOf<LocalDate?>(LocalDate.now()) } // Выбранная дата
+
 
     Column(
         modifier = Modifier
@@ -114,7 +120,7 @@ fun HomeScreen(randomNumber: Int) {
                         content() // Render the provided content!
                     }
                 },
-                )
+            )
         }
 
         Divider(color = NtvhGreen, thickness = 2.dp)
@@ -131,7 +137,10 @@ fun HomeScreen(randomNumber: Int) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = LocalDate.now().dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
+                text = LocalDate.now().dayOfWeek.getDisplayName(
+                    TextStyle.FULL,
+                    Locale.getDefault()
+                )
                     .uppercase(),
                 // .replaceFirstChar { it.uppercase(Locale.getDefault()) },
                 fontWeight = FontWeight.Bold,
@@ -143,7 +152,8 @@ fun HomeScreen(randomNumber: Int) {
                 color = NtvhGreen
             )
             Text(
-                text = currentMonth.month.getDisplayName(TextStyle.FULL, Locale("ru")).uppercase(),
+                text = currentMonth.month.getDisplayName(TextStyle.FULL, Locale("ru"))
+                    .uppercase(),
                 fontWeight = FontWeight.Bold,
                 color = NtvhGreen
             )
@@ -155,7 +165,9 @@ fun HomeScreen(randomNumber: Int) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(5.dp)
+                .padding(bottom = 100.dp)
+
+            // .background(Color.Red)
         ) {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(randomNumber) {
@@ -174,8 +186,15 @@ fun HomeScreen(randomNumber: Int) {
 //        }
 //  *****************************************
 
-
     }
+    val content = remember { mutableStateOf("Home Screen") }
+    val selectedItem = remember { mutableStateOf("home") }
+    val openDialog = remember { mutableStateOf(false) }
+
+
+
+
+
 }
 
 
