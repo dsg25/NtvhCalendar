@@ -35,7 +35,7 @@ fun checkCredentials(
     val (name, lastName, userid) = firstItem?.let { Triple(it.name, it.lastName, it.userId) }
         ?: (Triple("DefaultName", "DefaultLastName", 0))
 
-      /*  Проверка на совпадение введеных данных и полученных с сервера */
+    /*  Проверка на совпадение введеных данных и полученных с сервера */
     if (creds.isNotEmpty() &&
         creds.loginName.equals(name, ignoreCase = true) &&
         creds.loginLastName.equals(lastName, ignoreCase = true)
@@ -60,6 +60,6 @@ fun checkCredentials(
         Log.d("Mylog", userid.toString())
     } else {
         checkUserCredentials.value = false
-            }
+    }
     return checkUserCredentials.value
 }

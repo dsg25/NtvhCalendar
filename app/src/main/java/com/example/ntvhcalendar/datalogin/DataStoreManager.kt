@@ -10,7 +10,8 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.map
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("data_store")
-class DataStoreManager (private val context: Context) {
+
+class DataStoreManager(private val context: Context) {
 
     suspend fun saveSettings(storageUserData: StorageUserData) {
         context.dataStore.edit { pref ->
@@ -23,7 +24,7 @@ class DataStoreManager (private val context: Context) {
         return@map StorageUserData(
             pref[stringPreferencesKey("local_name")] ?: "",
             pref[stringPreferencesKey("local_lastname")] ?: "",
-            pref[intPreferencesKey("user_Id")] ?:0
+            pref[intPreferencesKey("user_Id")] ?: 0
 
         )
 

@@ -57,7 +57,9 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
-    Surface(modifier = Modifier.fillMaxSize().background(BaseBGPrimary)) {
+    Surface(modifier = Modifier
+        .fillMaxSize()
+        .background(BaseBGPrimary)) {
         val coroutine = rememberCoroutineScope()
 
         val context = LocalContext.current
@@ -98,7 +100,8 @@ fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
                 Icon(
                     imageVector = Icons.Default.ExitToApp,
                     contentDescription = "Exit",
-                    tint = NtvhBlue)
+                    tint = NtvhBlue
+                )
             }
         }
 // *********** END ************
@@ -112,17 +115,16 @@ fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
         ) {
 
 
-            if (!checkUserCredentials.value)   UserError()
+            if (!checkUserCredentials.value) UserError()
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            if (storageNameState.value.isNotEmpty() && storageLastNameState.value.isNotEmpty())
-            {
+            if (storageNameState.value.isNotEmpty() && storageLastNameState.value.isNotEmpty()) {
                 credentials.loginName = storageNameState.value
                 credentials.loginLastName = storageLastNameState.value
             }
 
-            
+
             LoginNameField(
                 value = storageNameState.value.ifEmpty { credentials.loginName },
                 onChange = { data -> credentials = credentials.copy(loginName = data) },
@@ -152,7 +154,7 @@ fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
                         usersList,
                         coroutine,
                     )
-                 },
+                },
                 enabled = credentials.isNotEmpty() || storageNameState.value.isNotEmpty() && storageLastNameState.value.isNotEmpty(),
                 shape = RoundedCornerShape(5.dp),
                 modifier = Modifier.fillMaxWidth()
@@ -239,7 +241,7 @@ fun LoginLastField(
 }
 
 @Composable
-fun UserError () {
+fun UserError() {
 
     Text(text = "Пользователя не существует", color = NtvhRed)
 }

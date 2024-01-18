@@ -38,6 +38,7 @@ import kotlinx.coroutines.delay
 import org.json.JSONObject
 
 val API_KEY = ApiKey()
+
 class LoginActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,9 +54,10 @@ class LoginActivity : ComponentActivity() {
                     windowInsetsController?.hide(WindowInsets.Type.navigationBars())
                 } else {
                     // Для более старых версий
-                    window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
+                    window.decorView.systemUiVisibility =
+                        (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
                 }
                 /* END */
 
@@ -73,7 +75,7 @@ class LoginActivity : ComponentActivity() {
                     LoadingScreen()
                 } else {
                     LoginScreen(usersList)
-                        }
+                }
             }
         }
     }
@@ -120,10 +122,13 @@ fun LoadingScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-               
+
         // Здесь можете отобразить логотип или индикатор загрузки
 
-        Image(painter = painterResource(id = R.drawable.narodnoe_full_logo), contentDescription = "Logo")
+        Image(
+            painter = painterResource(id = R.drawable.narodnoe_full_logo),
+            contentDescription = "Logo"
+        )
         CircularProgressIndicator(color = Color.White)
     }
 }

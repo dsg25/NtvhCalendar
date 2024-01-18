@@ -165,9 +165,6 @@ fun CompanyCalendarScreen(randomNumber: Int) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 100.dp)
-
-            // .background(Color.Red)
         ) {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(randomNumber) {
@@ -190,9 +187,6 @@ fun CompanyCalendarScreen(randomNumber: Int) {
     val content = remember { mutableStateOf("Home Screen") }
     val selectedItem = remember { mutableStateOf("home") }
     val openDialog = remember { mutableStateOf(false) }
-
-
-
 
 
 }

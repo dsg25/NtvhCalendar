@@ -54,24 +54,29 @@ fun ListItems() {
                     .padding(start = 6.dp, top = 5.dp, bottom = 5.dp, end = 8.dp)
             )
             {
-                ColorIndex(shape = RoundedCornerShape(5.dp), color = Color.Blue) // Изменение цвета События
+                ColorIndex(
+                    shape = RoundedCornerShape(5.dp),
+                    color = Color.Blue
+                ) // Изменение цвета События
             }
             Row(
                 modifier = Modifier
                     .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             )
             {
 
-                 Box(
+                Box(
                     modifier = Modifier
                         .padding(2.dp)
                         .width(280.dp),
                     contentAlignment = Alignment.CenterStart
                 ) {
-                    Text(text = "СОБЫТИЕ: Мама мыла раму, папа вапвп вап",
-                        modifier = Modifier.wrapContentWidth())
+                    Text(
+                        text = "СОБЫТИЕ: Мама мыла раму, папа вапвп вап",
+                        modifier = Modifier.wrapContentWidth()
+                    )
                 }
 
 
@@ -92,10 +97,14 @@ fun ListItems() {
 }
 
 @Composable
-fun ColorIndex(shape: Shape, color: Color){
+fun ColorIndex(shape: Shape, color: Color) {
     Column(modifier = Modifier.wrapContentSize(Alignment.Center)) {
         Box(
-            modifier = Modifier.height(40.dp).width(7.dp).clip(shape).background(color)
+            modifier = Modifier
+                .height(40.dp)
+                .width(7.dp)
+                .clip(shape)
+                .background(color)
         )
     }
 }

@@ -13,8 +13,11 @@ import androidx.compose.ui.unit.sp
 import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
 
 @Composable
-fun TaskScreen () {
-    Column (modifier = Modifier.fillMaxSize().background(BaseBGSecondary),
+fun TaskScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(BaseBGSecondary),
         verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
     )
     {

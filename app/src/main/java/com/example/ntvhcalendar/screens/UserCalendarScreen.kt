@@ -14,10 +14,13 @@ import androidx.compose.ui.unit.sp
 import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
 
 @Composable
-fun UserCalendarScreen () {
-    Column (modifier = Modifier.fillMaxSize().background(BaseBGSecondary),
-verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
-        )
+fun UserCalendarScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(BaseBGSecondary),
+        verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
+    )
     {
         Text(text = "USER CALENDAR", color = Color.White, fontSize = 30.sp)
     }
