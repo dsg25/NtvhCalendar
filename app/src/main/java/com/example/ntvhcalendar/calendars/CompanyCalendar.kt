@@ -82,7 +82,9 @@ fun CompanyCalendar() {
 
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { /*Добавляем событие в расписание*/ },
+                onClick = {
+                    Toast.makeText(context, "Добавляем съемку", Toast.LENGTH_LONG).show()
+                          /*Добавляем событие в расписание*/ },
                 modifier = Modifier
                     .zIndex(20f)
                     .padding(start = 30.dp, bottom = 50.dp),

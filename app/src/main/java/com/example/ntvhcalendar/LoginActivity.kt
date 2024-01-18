@@ -123,8 +123,6 @@ fun LoadingScreen() {
         verticalArrangement = Arrangement.Center
     ) {
 
-        // Здесь можете отобразить логотип или индикатор загрузки
-
         Image(
             painter = painterResource(id = R.drawable.narodnoe_full_logo),
             contentDescription = "Logo"
