@@ -3,6 +3,7 @@ package com.example.ntvhcalendar
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.widget.Toast
@@ -29,7 +30,7 @@ import androidx.compose.ui.res.painterResource
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.ntvhcalendar.data.ApiKey
+import com.example.ntvhcalendar.datamain.ApiKey
 import com.example.ntvhcalendar.data.LoadingDataUser
 import com.example.ntvhcalendar.screens.LoginScreen
 import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
@@ -82,7 +83,7 @@ class LoginActivity : ComponentActivity() {
 }
 
 // Функцию вынести в отдельный файл в Utils
-fun requestUserList(
+private fun requestUserList(
     context: Context, usersList: MutableState<List<LoadingDataUser>>
 ) {
     val url = "https://narodnoetv.bitrix24.ru/rest/6/${API_KEY.ApiKey}/user.get/?ID:"
@@ -109,6 +110,7 @@ private fun getData(responce: String): List<LoadingDataUser> {
         val userId = item.getString("ID").toInt()
 
         list.add(LoadingDataUser(name, lastname, userId))
+
     }
     return list
 }

@@ -29,10 +29,11 @@ import androidx.compose.ui.unit.dp
 import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true)
+// @Preview(showBackground = true)
 @Composable
-fun ListItems() {
+fun ListItems(item: DataGroupEvent) {
     val context = LocalContext.current
+    val eventIdAtIndex = item.id
 
     Card(
         modifier = Modifier
@@ -44,7 +45,7 @@ fun ListItems() {
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
         shape = RoundedCornerShape(10.dp),
-        onClick = { Toast.makeText(context, "Нажал на Card", Toast.LENGTH_LONG).show()}
+        onClick = { Toast.makeText(context, "Нажал на Card ${eventIdAtIndex}", Toast.LENGTH_SHORT).show()}
     )
     {
         Row(
@@ -63,7 +64,7 @@ fun ListItems() {
             {
                 ColorIndex(
                     shape = RoundedCornerShape(5.dp),
-                    color = Color.Blue
+                    color = Color(android.graphics.Color.parseColor(item.color))//colorhex))
                 ) // Изменение цвета События
             }
             Row(
@@ -81,7 +82,7 @@ fun ListItems() {
                     contentAlignment = Alignment.CenterStart
                 ) {
                     Text(
-                        text = "СОБЫТИЕ: Мама мыла раму, папа вапвп вап",
+                        text = item.name,
                         modifier = Modifier.wrapContentWidth()
                     )
                 }
@@ -92,8 +93,8 @@ fun ListItems() {
                         .padding(start = 8.dp, top = 5.dp, bottom = 5.dp, end = 8.dp)
                 )
                 {
-                    Text(text = "12:30")
-                    Text(text = "13:30")
+                    Text(text = item.dateFrom)
+                    Text(text = item.dateTo)
                 }
             }
         }

@@ -17,10 +17,11 @@ class DataStoreManager(private val context: Context) {
         context.dataStore.edit { pref ->
             pref[stringPreferencesKey("local_name")] = storageUserData.localName
             pref[stringPreferencesKey("local_lastname")] = storageUserData.localLastName
+            pref[intPreferencesKey("user_Id")] = storageUserData.userId
         }
     }
 
-    fun getSettings() = context.dataStore.data.map { pref ->
+    fun loadSettings() = context.dataStore.data.map { pref ->
         return@map StorageUserData(
             pref[stringPreferencesKey("local_name")] ?: "",
             pref[stringPreferencesKey("local_lastname")] ?: "",

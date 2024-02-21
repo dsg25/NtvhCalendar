@@ -35,7 +35,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
@@ -49,8 +48,6 @@ import com.example.ntvhcalendar.data.LoadingDataUser
 import com.example.ntvhcalendar.data.StorageUserData
 import com.example.ntvhcalendar.ui.theme.BaseBGPrimary
 import com.example.ntvhcalendar.ui.theme.NtvhBlue
-import com.example.ntvhcalendar.ui.theme.NtvhGreen
-import com.example.ntvhcalendar.ui.theme.NtvhLightBlue
 import com.example.ntvhcalendar.ui.theme.NtvhRed
 import com.example.ntvhcalendar.ui.theme.NtvhWhite
 import kotlinx.coroutines.launch
@@ -66,6 +63,7 @@ fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
 
         val storageNameState = remember { mutableStateOf("") }
         val storageLastNameState = remember { mutableStateOf("") }
+        val storageUserIdState = remember { mutableStateOf(0) }
         val dataStoreManager = DataStoreManager(context)
 
         val checkUserCredentials = remember {
@@ -73,9 +71,11 @@ fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
         }
 
         LaunchedEffect(key1 = true) {
-            dataStoreManager.getSettings().collect { settings ->
+            dataStoreManager.loadSettings().collect { settings ->
                 storageNameState.value = settings.localName
                 storageLastNameState.value = settings.localLastName
+                storageUserIdState.value = settings.userId
+
             }
         }
         var credentials by remember { mutableStateOf(Credentials()) }
@@ -84,6 +84,7 @@ fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
 
         Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd)
         {
+
             IconButton(onClick = {
                 coroutine.launch {
                     dataStoreManager.saveSettings(
@@ -105,6 +106,10 @@ fun LoginScreen(usersList: MutableState<List<LoadingDataUser>>) {
             }
         }
 // *********** END ************
+
+
+
+
 
         Column(
             verticalArrangement = Arrangement.Center,

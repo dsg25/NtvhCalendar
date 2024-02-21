@@ -37,7 +37,7 @@ fun NavigationScreen() {
 @Composable
 fun BottomBar(navController: NavHostController) {
     val screens = listOf(
-        BottomNavItems.CompanyCalendar,
+        BottomNavItems.GroupCalendar,
         BottomNavItems.UserCalendar,
         BottomNavItems.UserTask
     )

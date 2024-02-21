@@ -15,9 +15,9 @@ sealed class BottomNavItems(
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
 ) {
-    object CompanyCalendar : BottomNavItems(
+    object GroupCalendar : BottomNavItems(
         name = "Расписание",
-        route = "companyCalendar",
+        route = "groupCalendar",
         selectedIcon = Icons.Filled.DateRange,
         unselectedIcon = Icons.Outlined.DateRange,
     )

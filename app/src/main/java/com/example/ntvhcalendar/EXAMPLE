@@ -1,0 +1,17 @@
+
+ Смена формата даты и времени
+
+
+            val dateString = "23.01.2024 20:20:00"
+
+            val inputformatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")
+            val outputformatter = DateTimeFormatter.ofPattern("HH:mm")
+
+            // Преобразование строки в LocalDateTime
+            val dateTime = LocalDateTime.parse(dateString, inputformatter)
+
+            // Вывод значения переменной dateTime
+            Toast.makeText(context, "Дата и время: ${dateTime.format(outputformatter)}", Toast.LENGTH_LONG).show()
+
+
+

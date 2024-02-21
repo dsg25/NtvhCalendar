@@ -1,5 +1,6 @@
 package com.example.ntvhcalendar.screens
 
+import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -8,7 +9,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -16,18 +16,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
-import androidx.compose.material.Scaffold
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -37,11 +32,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ntvhcalendar.data.LoadingDataUser
+import com.example.ntvhcalendar.datacalendar.DataGroupEvent
 import com.kizitonwose.calendar.compose.HorizontalCalendar
 import com.kizitonwose.calendar.compose.rememberCalendarState
 import com.kizitonwose.calendar.core.CalendarDay
@@ -59,15 +55,24 @@ import com.example.ntvhcalendar.ui.theme.BaseBGPrimary
 import com.example.ntvhcalendar.ui.theme.BaseBGSecondary
 import com.example.ntvhcalendar.ui.theme.NtvhBlue
 import com.example.ntvhcalendar.ui.theme.NtvhGreen
+import com.example.ntvhcalendar.utils.requestGroupEvent
+import java.time.format.DateTimeFormatter
 
 
 @Composable
-fun CompanyCalendarScreen(randomNumber: Int) {
+fun groupCalendarScreen(context: Context) {
     val currentMonth = remember { YearMonth.now() }
     val startMonth = remember { currentMonth.minusMonths(100) } // Adjust as needed
     val endMonth = remember { currentMonth.plusMonths(100) } // Adjust as needed
 
     var selectedDate by remember { mutableStateOf<LocalDate?>(LocalDate.now()) } // Выбранная дата
+    val selectedDateFormated = selectedDate?.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")).toString() // Форматированная выбранной даты
+
+    val groupEventList = remember { mutableStateOf(listOf<DataGroupEvent>()) }
+
+    requestGroupEvent(context,"calendar.event.get",
+      "type=group&ownerId=6&from=${selectedDateFormated}&" +
+              "to=${selectedDateFormated}", groupEventList)
 
 
     Column(
@@ -81,8 +86,6 @@ fun CompanyCalendarScreen(randomNumber: Int) {
                 .fillMaxWidth()
                 //.height(290.dp)
                 .align(Alignment.Start),
-
-
             ) {
 
             val state = rememberCalendarState(
@@ -90,7 +93,6 @@ fun CompanyCalendarScreen(randomNumber: Int) {
                 endMonth = endMonth,
                 firstVisibleMonth = currentMonth,
                 firstDayOfWeek = firstDayOfWeekFromLocale(), //firstDayOfWeek,
-
             )
 
             HorizontalCalendar(
@@ -170,19 +172,21 @@ fun CompanyCalendarScreen(randomNumber: Int) {
             modifier = Modifier
                 .fillMaxSize()
         ) {
+            // Выводим события в виде карточек
             LazyColumn(modifier = Modifier
                 .fillMaxSize()
                 .padding(bottom = 60.dp))  // ДВЕ СТРОКИ: Расстояние после последней карточки
             {
-                items(randomNumber) {
-                    ListItems()
-                }
-                item {
-                Spacer(modifier = Modifier.height(60.dp)) // ДВЕ СТРОКИ: Расстояние после последней карточки
-
+                itemsIndexed(
+                    groupEventList.value
+                ){
+                    _, item ->  ListItems(item)
                 }
             }
-
+               // item {
+               // Spacer(modifier = Modifier.height(60.dp)) // ДВЕ СТРОКИ: Расстояние после последней карточки
+               // }
+            }
         }
 
 // ************ Вывод дня *************
@@ -194,10 +198,10 @@ fun CompanyCalendarScreen(randomNumber: Int) {
 //  *****************************************
 
     }
-    val content = remember { mutableStateOf("Home Screen") }
-    val selectedItem = remember { mutableStateOf("home") }
-    val openDialog = remember { mutableStateOf(false) }
-}
+//    val content = remember { mutableStateOf("Home Screen") }
+//    val selectedItem = remember { mutableStateOf("home") }
+//    val openDialog = remember { mutableStateOf(false) }
+
 
 @Composable
 private fun MonthHeader(calendarMonth: CalendarMonth) {

@@ -3,7 +3,6 @@
 package com.example.ntvhcalendar.calendars
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -20,7 +19,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -31,30 +29,27 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import com.example.ntvhcalendar.screens.CompanyCalendarScreen
-import com.example.ntvhcalendar.ui.theme.NtvhBlue
+import com.example.ntvhcalendar.screens.groupCalendarScreen
 import com.example.ntvhcalendar.ui.theme.NtvhLightBlue
-import com.example.ntvhcalendar.ui.theme.NtvhWhite
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlin.random.Random
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun CompanyCalendar() {
+fun GroupCalendar() {
     val context = LocalContext.current
     val refreshScope = rememberCoroutineScope()
     var refreshing by remember { mutableStateOf(false) }
 
-    var randomNumber by remember { mutableIntStateOf(5) } // Запоминаем переменную для рандома
+     // Toast.makeText(context, "sdfsd", Toast.LENGTH_SHORT).show()
 
     // Выполнение операторов во время Refresh
     fun refresh() = refreshScope.launch {
         refreshing = true
         delay(1000)
-        randomNumber = Random.nextInt(1, 12) // выбираем рандом для Листа
+
         refreshing = false
     }
 
@@ -69,7 +64,7 @@ fun CompanyCalendar() {
 
             ) {
 
-                CompanyCalendarScreen(randomNumber)
+                groupCalendarScreen(context)
 
                 // Отображение индикатора обновления
                 PullRefreshIndicator(

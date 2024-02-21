@@ -12,10 +12,10 @@ import com.example.ntvhcalendar.screens.TaskScreen
 fun BottomNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = BottomNavItems.CompanyCalendar.route
+        startDestination = BottomNavItems.GroupCalendar.route
     ) {
-        composable(route = BottomNavItems.CompanyCalendar.route) {
-            CompanyCalendar()
+        composable(route = BottomNavItems.GroupCalendar.route) {
+            GroupCalendar()
         }
         composable(route = BottomNavItems.UserCalendar.route) {
             UserCalendar()
